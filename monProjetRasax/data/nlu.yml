@@ -1,0 +1,207 @@
+version: "2.0"
+# ------------------------------------- Description -------------------------------------------
+# Ce fichier contient les données d'entraînement NLU regroupées dans des intents différentes.
+# Il inclut l'intention de l'utilisateur et toutes les entités contenues dans son message.
+# ---------------------------------------------------------------------------------------------
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Hello
+    - Hi
+    - hello hello
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - Yes thanks
+    - good thank'x
+    - yes !
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - shit
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - good
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: date
+  examples: |
+    - what day is it?
+    - date
+    - What day is it
+    - what day is it ?
+
+- intent: schedule
+  examples: |
+    - Can i get my schedule?
+    - Can I have my schedule
+    - can I have my schedule?
+    - can i have my schedule?
+    - can i have mu schedule?
+    - Can you give me my schedule?
+    - Give me the schedule for my section.
+    - What's next?
+    - What do I have now?
+    - What is the program?
+    - My program
+    - My schedule
+    - my section is [M1](section) and my group is [alternant](group)
+
+- intent: response_schedule
+  examples: |
+    - my section is [M1](section) my group is [alternant](group)
+    - My section is [M1](section) and my group is [alternant](group)
+    - my section is Master 1
+    - I am in [Master 1](section) [classique](group)
+    - [Master 1](section) [alternant](group)
+    - my section is [Master 2](section) [classique](group)
+    - my section is [master 1](section) and my group is [alternant](group)
+    - my section is [M1](section) and my group is [classique](group)
+
+- intent: ask_films_category
+  examples: |
+    - Give me [Action](categorie) films
+    - [adventure](categorie) films
+    - [Drama](categorie) films
+    - can i have [Action](categorie) films
+    - can i have Aventure films
+    - can i have [drama](categorie) films?
+    - can i have [action](categorie) films
+
+- intent: ask_serie_category
+  examples: |
+    - Give me [Action](categorie) series
+    - [adventure](categorie) series
+    - [Drama](categorie) series
+    - can i have [Action](categorie) series
+    - can i have [drama](categorie) series?
+    - can i have [action](categorie) series
+
+- intent: ask_films_realisator
+  examples: |
+    - Film realized by [James Gunn](realisateur)
+    - film realized by [James Cameron](realisateur)
+    - Give me a film realized by [James Gunn](realisateur)
+
+- intent: ask_serie_nbr_season
+  examples: |
+    - number of season in [the good doctor](titre)
+    - How many season in [the original](titre)
+    - Number of season of [the original](titre)
+
+- intent: ask_info_teacher_name
+  examples: |
+    - Can i have the informations of [Zohra BELGAID](name)
+    - Informations of [Zohra BELGAID](name)
+    - Mail to [Zohra BELGAID](name)
+
+- intent: msg_content
+  examples: |
+    - the message is [Can we reserve the robots tomorrow](message)
+    - the message is [When the robot will be available ](message)
+    - the message is [is the robot available tomorrow ](message)
+    - [resarvation](message)
+
+- intent: salle_by_date
+  examples: |
+    - Give me rooms on [sunday](date)
+    - give me a room on [sunday](date)
+    - rooms available on [sunday](date)
+
+- intent: weather_by_date
+  examples: |
+    - what is the weather on [sunday](date)
+    - weather on [sunday](date)
+    - Weather for [sunday](date)
+    - what is the weather for monday ?
+    - what is the weather for [sunday](date)?
+    - can i have the weather on [monday](date)
+    - can i have the weather for [monday](date) ?
+    - can i have the weather on [sunday](date)
+    - can i have the weather on [monday](date)?
+    - what is the weather on [monday](date)
+
+- intent: serie
+  examples: |
+    - serie
+- intent: film
+  examples: |
+    - film
+    - movie

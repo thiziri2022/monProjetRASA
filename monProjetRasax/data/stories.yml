@@ -1,0 +1,143 @@
+version: "2.0"
+# ------------------------------------- Description -------------------------------------------
+# Ce fichier est un type de données d'entraînement utilisées pour entraîner le modèle  du dialogue.
+# Il consiste en une conversation entre un utilisateur et un bot. 
+# Les messages de l'utilisateur sont représentés sous forme d'intent et d'entités annotées.
+# Les réponses du bot sont représentées sous forme de séquence d'actions.
+# ----------------------------------------------------------------------------------------------
+
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+- story: date path
+  steps:
+  - intent: date
+  - action: utter_date
+  - action: utter_did_that_help
+
+- story: schedule path
+  steps:
+  - intent: schedule
+  - action: utter_schedule
+  - intent: response_schedule
+    entities:
+    - section: M1
+  - slot_was_set:
+    - section: M1
+  - action: action_schedule
+
+- story: film path
+  steps:
+  - intent: ask_films_category
+    entities:
+    - categorie: Action
+  - slot_was_set:
+    - categorie: Action
+  - action: action_film_categorie
+
+- story: film realis path
+  steps:
+  - intent: ask_films_realisator
+    entities:
+    - realisateur: James Gunn
+  - slot_was_set:
+    - realisateur: James Gunn
+  - action: action_film_realisateur
+
+- story: serie saison path
+  steps:
+  - intent: ask_serie_nbr_saisons
+    entities:
+    - titre: the good doctor
+  - slot_was_set:
+    - titre: the good doctor
+  - action: action_series_saison
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_info_teacher_name
+    entities:
+    - name: Zohra BELGAID
+  - slot_was_set:
+    - name: Zohra BELGAID
+  - action: utter_msg_content
+  - intent: msg_content
+    entities:
+    - message: resarvation
+  - slot_was_set:
+    - message: resarvation
+  - action: action_enseignant_nom
+
+- story: available_room
+  steps:
+  - intent: salle_by_date
+    entities:
+    - date: sunday
+  - slot_was_set:
+    - date: sunday    
+  - action: action_salle_by_date
+
+
+- story: weather_film_story
+  steps:
+  - intent: weather_by_date
+    entities:
+    - date: sunday
+  - slot_was_set:
+    - date: sunday    
+  - action: action_weather
+  - action: utter_watch
+  - intent: film
+  - action: utter_film
+  - intent: ask_films_category
+    entities:
+    - categorie: action
+  - slot_was_set:
+    - categorie: action
+  - action: action_film_categorie
+
+
+- story: weather_serie_story
+  steps:
+  - intent: weather_by_date
+    entities:
+    - date: sunday
+  - slot_was_set:
+    - date: sunday    
+  - action: action_weather
+  - action: utter_watch
+  - intent: serie
+  - action: utter_serie
+  - intent: ask_serie_category
+    entities:
+    - categorie: action
+  - slot_was_set:
+    - categorie: action
+  - action: action_series_categorie
+
+
+
+

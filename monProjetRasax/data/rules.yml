@@ -1,0 +1,18 @@
+version: "2.0"
+# ------------------------------------- Description -------------------------------------------
+# Les règles sont un type de données d'entraînement utilisées pour entraîner le modèle de gestion 
+# du dialogue de votre assistant. Les règles décrivent de courts morceaux de conversations qui 
+# doivent toujours suivre le même chemin
+# ----------------------------------------------------------------------------------------------
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot

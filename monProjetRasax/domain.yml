@@ -1,0 +1,137 @@
+version: '2.0'
+# ------------------------------------- Description ------------------------------------------
+# Ce fichier définit l'univers dans lequel évolue votre assistant et il contient :
+# Toutes les intents réporties dans le fichier nlu.yml
+# Les entités déduit par le modèle 
+# Les slots utilisée pour stocker les informations fournies par l'utilisateur
+# Les réponses 
+# Les actions que notre bot doit connaître
+# --------------------------------------------------------------------------------------------
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- ask_info_teacher_name
+- msg_content
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- date
+- schedule
+- utter_schedule
+- response_schedule
+- ask_films_category
+- ask_films_realisator
+- ask_serie_nbr_saisons
+- salle_by_date
+- weather_by_date
+- ask_serie_nbr_season
+- ask_serie_category
+- serie
+- film
+
+entities:
+- categorie
+- group
+- message
+- name
+- realisateur
+- section
+- titre
+- date
+
+slots:
+  group:
+    type: text
+    influence_conversation: true
+  section:
+    type: text
+    influence_conversation: true
+  categorie:
+    type: categorical
+    influence_conversation: true
+    values:
+    - action
+    - drama
+    - biopic
+    - adventure
+    - science-fiction
+  realisateur:
+    type: text
+    influence_conversation: true
+  titre:
+    type: categorical
+    influence_conversation: true
+    values:
+    - the good doctor
+  name:
+    type: categorical
+    influence_conversation: true
+    values:
+    - fabrice lefevre
+    - romain raffin
+    - yazekeal hayel
+    - yannick esteve
+    - corinne fredouille
+    - pierre jourlin
+    - damien jourdan
+    - zohra belgaid
+  message:
+    type: text
+    influence_conversation: true
+  date:
+    type: categorical
+    influence_conversation: true
+    values:
+    - monday
+    - tuesday
+    - wednesday
+    - thursday
+    - friday
+    - saturday
+    - sunday
+
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  - text: Hi there
+  - text: What can I do for you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_date:
+  - text: Sunday 13 december
+  utter_schedule:
+  - text: Yes of course! What section and group are you in?
+  utter_msg_content:
+  - text: what is the message you want to send?
+  utter_watch:
+  - text: would you watch a film or a serie?
+  utter_film:
+  - text: what kind of film would you watch?
+  utter_serie:
+  - text: what kind of serie would you watch?
+
+actions:
+- action_enseignant_nom
+- action_film_categorie
+- action_film_realisateur
+- action_schedule
+- action_series_saison
+- action_salle_by_date
+- action_weather
+- action_series_categorie
